@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,54 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HelloTimer0314" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qTV-5Q-Pqs">
+                                <rect key="frame" x="87.5" y="90" width="200" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DKQ-yn-hiK"/>
+                                    <constraint firstAttribute="width" constant="200" id="ZwB-2t-Pbo"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="正轉"/>
+                                    <segment title="停止"/>
+                                    <segment title="反轉"/>
+                                </segments>
+                                <connections>
+                                    <action selector="theChangeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="PDh-Cu-kZI"/>
+                                </connections>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="13" translatesAutoresizingMaskIntoConstraints="NO" id="d3I-qo-WrI">
+                                <rect key="frame" x="91.5" y="150" width="192" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="KrV-zZ-WsY"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="speedChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="FKL-gB-rSC"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qTV-5Q-Pqs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2nq-yl-b2b"/>
+                            <constraint firstItem="d3I-qo-WrI" firstAttribute="width" secondItem="qTV-5Q-Pqs" secondAttribute="width" multiplier="0.94" id="6OY-og-ieD"/>
+                            <constraint firstItem="d3I-qo-WrI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Atv-UF-6IZ"/>
+                            <constraint firstItem="qTV-5Q-Pqs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="c8Z-TF-V63"/>
+                            <constraint firstItem="d3I-qo-WrI" firstAttribute="top" secondItem="qTV-5Q-Pqs" secondAttribute="bottom" constant="30" id="y5E-cG-n3w"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="speedSlider" destination="d3I-qo-WrI" id="Cla-15-LL5"/>
+                        <outlet property="theSegment" destination="qTV-5Q-Pqs" id="erB-xH-uXd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1293.5999999999999" y="112.89355322338831"/>
         </scene>
     </scenes>
 </document>
